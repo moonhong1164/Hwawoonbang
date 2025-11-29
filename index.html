@@ -157,11 +157,14 @@
       padding: 30px 20px 40px;
       display: flex;
       flex-direction: column;
+      align-items: center;
       gap: 18px;
     }
 
     .hero-inner {
-      max-width: 640px;
+      /* ✅ 박스 더 넓게 */
+      max-width: 860px;
+      width: 100%;
       padding: 20px 20px 22px;
       border-radius: 24px;
       background: rgba(255, 255, 255, 0.85);
@@ -557,7 +560,7 @@
     </header>
 
     <main>
-      <!-- 히어로 (한 줄 리딩 칸 제거된 버전) -->
+      <!-- 히어로 (한 줄 리딩 칸 제거 + 박스 확대) -->
       <section class="hero" id="top">
         <div class="hero-inner">
           <div class="hero-left-title">
