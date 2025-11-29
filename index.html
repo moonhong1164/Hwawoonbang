@@ -22,26 +22,18 @@
       --text-main: #1f1635;
       --text-muted: #6b6288;
 
-      --shadow-soft: 0 10px 30px rgba(31, 24, 61, 0.12);
       --radius-xl: 24px;
       --radius-lg: 18px;
     }
 
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
     body {
       margin: 0;
       font-family: ui-sans-serif, system-ui, -apple-system,
         "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
       color: var(--text-main);
-      background: linear-gradient(
-        to bottom,
-        var(--bg-top),
-        var(--bg-middle),
-        var(--bg-bottom)
-      );
+      background: linear-gradient(to bottom, var(--bg-top), var(--bg-middle), var(--bg-bottom));
     }
 
     a {
@@ -49,19 +41,11 @@
       text-decoration: none;
     }
 
-    img {
-      max-width: 100%;
-      display: block;
-    }
+    img { max-width: 100%; display: block; }
 
-    .page {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-    }
+    .page { min-height: 100vh; display: flex; flex-direction: column; }
 
     /* 헤더 */
-
     header {
       position: sticky;
       top: 0;
@@ -78,7 +62,6 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 12px;
     }
 
     .nav-left {
@@ -96,21 +79,13 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 18px;
       color: var(--accent-deep);
       box-shadow: 0 6px 18px rgba(124, 58, 237, 0.25);
-    }
-
-    .brand-text {
-      display: flex;
-      flex-direction: column;
-      line-height: 1.2;
     }
 
     .brand-main {
       font-size: 17px;
       font-weight: 700;
-      letter-spacing: 0.04em;
     }
 
     .brand-sub {
@@ -118,39 +93,7 @@
       color: var(--text-muted);
     }
 
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      font-size: 14px;
-    }
-
-    .nav-link {
-      padding: 6px 10px;
-      border-radius: 999px;
-      color: var(--text-muted);
-      transition: background 0.2s ease, color 0.2s ease;
-      cursor: pointer;
-    }
-
-    .nav-link:hover {
-      background: rgba(255, 255, 255, 0.7);
-      color: var(--accent-deep);
-    }
-
-    .nav-link.primary {
-      background: var(--accent);
-      color: #fff;
-      box-shadow: 0 10px 25px rgba(124, 58, 237, 0.3);
-      padding: 7px 14px;
-    }
-
-    main {
-      flex: 1;
-    }
-
-    /* 히어로 섹션 – 한 줄 리딩 카드 제거 버전 (단일 컬럼) */
-
+    /* 히어로 */
     .hero {
       max-width: 1040px;
       margin: 0 auto;
@@ -158,16 +101,16 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 18px;
     }
 
     .hero-inner {
-      /* ✅ 박스 더 넓게 */
-      max-width: 860px;
+      /* ⭐ 여기만 더 넓게 수정됨 */
+      max-width: 960px;
       width: 100%;
-      padding: 20px 20px 22px;
-      border-radius: 24px;
-      background: rgba(255, 255, 255, 0.85);
+      padding: 26px 28px 28px;
+
+      border-radius: 26px;
+      background: rgba(255, 255, 255, 0.88);
       box-shadow: 0 18px 40px rgba(88, 55, 180, 0.28);
       border: 1px solid rgba(228, 221, 255, 0.9);
     }
@@ -185,18 +128,9 @@
       margin-bottom: 12px;
     }
 
-    .pill-dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 999px;
-      background: radial-gradient(circle at 30% 20%, #fef3ff, #a855f7);
-      box-shadow: 0 0 0 3px rgba(168, 85, 247, 0.18);
-    }
-
     .hero h1 {
       margin: 0 0 10px;
-      font-size: clamp(30px, 4vw, 36px);
-      letter-spacing: 0.03em;
+      font-size: 36px;
     }
 
     .hero-title-sub {
@@ -219,17 +153,15 @@
     }
 
     .btn {
-      border-radius: 999px;
-      border: none;
-      padding: 9px 16px;
-      font-size: 13px;
-      cursor: pointer;
       display: inline-flex;
       align-items: center;
       gap: 6px;
+      padding: 9px 16px;
+      border-radius: 999px;
+      font-size: 13px;
       font-weight: 500;
-      transition: transform 0.12s ease, box-shadow 0.12s ease, background 0.12s ease;
-      text-decoration: none;
+      cursor: pointer;
+      border: none;
     }
 
     .btn-primary {
@@ -238,21 +170,10 @@
       box-shadow: 0 12px 28px rgba(124, 58, 237, 0.35);
     }
 
-    .btn-primary:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 14px 32px rgba(124, 58, 237, 0.4);
-    }
-
     .btn-ghost {
       background: rgba(255, 255, 255, 0.85);
-      color: var(--accent-deep);
       border: 1px solid #e4ddff;
-    }
-
-    .btn-ghost:hover {
-      background: #ffffff;
-      transform: translateY(-1px);
-      box-shadow: 0 8px 18px rgba(148, 120, 255, 0.2);
+      color: var(--accent-deep);
     }
 
     .hero-note {
@@ -261,7 +182,6 @@
     }
 
     /* 공통 섹션 */
-
     .section {
       max-width: 1040px;
       margin: 0 auto;
@@ -279,70 +199,11 @@
       margin-bottom: 16px;
     }
 
-    /* 공지 섹션 */
-
-    .notice-card {
-      border-radius: var(--radius-lg);
-      background: #f7f2ff;
-      border: 1px solid var(--line);
-      padding: 16px;
-      display: grid;
-      grid-template-columns: minmax(0, 2.2fr) minmax(0, 1.6fr);
-      gap: 18px;
-      align-items: center;
-      box-shadow: 0 10px 24px rgba(111, 77, 219, 0.12);
-    }
-
-    .notice-chip {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 4px 10px;
-      border-radius: 999px;
-      background: var(--accent-soft);
-      color: var(--accent-deep);
-      font-size: 11px;
-      margin-bottom: 6px;
-    }
-
-    .notice-title {
-      font-size: 15px;
-      font-weight: 600;
-      margin-bottom: 4px;
-    }
-
-    .notice-body {
-      font-size: 13px;
-      color: var(--text-muted);
-      margin-bottom: 10px;
-    }
-
-    .notice-meta {
-      font-size: 11px;
-      color: var(--text-muted);
-    }
-
-    .notice-label {
-      font-size: 11px;
-      color: var(--text-muted);
-      margin-bottom: 4px;
-      text-align: right;
-    }
-
-    .notice-btn-group {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      justify-content: flex-end;
-    }
-
     /* 소개 카드 */
-
     .cards-grid {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 14px;
-      margin-top: 10px;
     }
 
     .info-card {
@@ -351,21 +212,17 @@
       padding: 14px;
       border: 1px solid #ece5ff;
       box-shadow: 0 10px 20px rgba(126, 89, 255, 0.06);
-      font-size: 13px;
     }
 
-    .info-card h3 {
-      margin: 0 0 6px;
-      font-size: 14px;
-    }
+    .info-card h3 { margin: 0 0 6px; font-size: 14px; }
 
     .badge {
       display: inline-flex;
       align-items: center;
       gap: 4px;
       padding: 2px 8px;
-      border-radius: 999px;
       font-size: 11px;
+      border-radius: 999px;
       background: #f3e8ff;
       color: var(--accent-deep);
       margin-bottom: 6px;
@@ -379,28 +236,20 @@
       color: var(--text-muted);
     }
 
-    .info-list li + li {
-      margin-top: 2px;
-    }
-
     /* 팀원 카드 */
 
     .team-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
       gap: 18px;
-      margin-top: 14px;
     }
 
     .profile-card {
       background: linear-gradient(145deg, #fdfbff, #f3e8ff);
       border-radius: 22px;
-      padding: 16px 16px 14px;
+      padding: 20px 18px 18px;
       border: 1px solid #e4ddff;
       box-shadow: 0 16px 32px rgba(124, 58, 237, 0.18);
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
     }
 
     .profile-header {
@@ -410,45 +259,32 @@
     }
 
     .profile-avatar {
-      width: 52px;
-      height: 52px;
+      width: 54px;
+      height: 54px;
       border-radius: 999px;
       background: radial-gradient(circle at 20% 10%, #ffffff, #e9ddff);
       border: 1px solid #dccfff;
+      font-size: 28px;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 26px;
-      box-shadow: 0 10px 22px rgba(124, 58, 237, 0.28);
     }
 
-    .profile-text {
-      display: flex;
-      flex-direction: column;
-      gap: 2px;
-    }
-
-    .profile-name {
-      font-size: 15px;
-      font-weight: 700;
-    }
-
-    .profile-role {
-      font-size: 12px;
-      color: var(--text-muted);
-    }
+    .profile-name { font-size: 15px; font-weight: 700; }
+    .profile-role { font-size: 12px; color: var(--text-muted); }
 
     .profile-body {
       font-size: 12px;
       color: var(--text-muted);
+      margin-top: 6px;
       line-height: 1.5;
     }
 
     .profile-links {
+      margin-top: 8px;
       display: flex;
+      gap: 6px;
       flex-wrap: wrap;
-      gap: 8px;
-      margin-top: 4px;
     }
 
     .profile-button {
@@ -457,364 +293,233 @@
       border-radius: 999px;
       border: 1px solid var(--accent-deep);
       color: var(--accent-deep);
-      background: rgba(255, 255, 255, 0.9);
-      display: inline-flex;
-      align-items: center;
-      gap: 4px;
-      cursor: pointer;
-      transition: background 0.15s ease, color 0.15s ease, box-shadow 0.15s ease, transform 0.1s ease;
     }
 
     .profile-button:hover {
       background: var(--accent-deep);
       color: #fff;
-      box-shadow: 0 8px 18px rgba(124, 58, 237, 0.3);
-      transform: translateY(-1px);
     }
 
-    /* 프로젝트 섹션 */
-
+    /* 푸터 */
     footer {
       border-top: 1px solid rgba(226, 217, 255, 0.8);
-      margin-top: 24px;
       background: rgba(249, 245, 255, 0.9);
+      margin-top: 24px;
     }
 
     .footer-inner {
       max-width: 1040px;
       margin: 0 auto;
-      padding: 14px 20px 18px;
-      font-size: 11px;
+      padding: 14px 20px;
+      font-size: 12px;
       color: var(--text-muted);
       display: flex;
-      flex-wrap: wrap;
       justify-content: space-between;
-      gap: 8px;
-      align-items: center;
-    }
-
-    .mini-link {
-      font-size: 11px;
-      color: var(--text-muted);
-      text-decoration: underline;
-      text-decoration-style: dotted;
-      text-underline-offset: 3px;
-      cursor: pointer;
     }
 
     /* 반응형 */
-
     @media (max-width: 768px) {
-      .hero {
-        padding-top: 22px;
-      }
-
-      .nav-links {
-        display: none;
-      }
-
-      .notice-card {
-        grid-template-columns: minmax(0, 1fr);
-      }
-
-      .cards-grid {
-        grid-template-columns: minmax(0, 1fr);
-      }
-
-      .hero-inner {
-        padding-inline: 16px;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .hero {
-        padding-inline: 16px;
-      }
-      .section {
-        padding-inline: 16px;
-      }
+      .hero-inner { padding: 20px; }
+      .nav-links { display: none; }
+      .cards-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
+
 <body>
   <div class="page">
+
     <!-- 헤더 -->
     <header>
       <div class="nav">
         <div class="nav-left">
-          <div class="logo-mark">
-            花
-          </div>
-          <div class="brand-text">
-            <span class="brand-main">화운방 花澐房</span>
-            <span class="brand-sub">Tarot & Card Creative Studio</span>
+          <div class="logo-mark">花</div>
+          <div>
+            <div class="brand-main">화운방 花澐房</div>
+            <div class="brand-sub">Tarot & Card Creative Studio</div>
           </div>
         </div>
+
         <nav class="nav-links">
-          <a href="#about" class="nav-link">소개</a>
-          <a href="#team" class="nav-link">팀원</a>
-          <a href="#projects" class="nav-link">작업 & 카드</a>
-          <a href="#notice" class="nav-link primary">펀딩 안내</a>
+          <a href="#about">소개</a>
+          <a href="#team">팀원</a>
+          <a href="#projects">작업</a>
+          <a href="#notice" class="nav-link primary">펀딩</a>
         </nav>
       </div>
     </header>
 
-    <main>
-      <!-- 히어로 (한 줄 리딩 칸 제거 + 박스 확대) -->
-      <section class="hero" id="top">
-        <div class="hero-inner">
-          <div class="hero-left-title">
-            <span class="pill-dot"></span>
-            <span>영감의 물결을 카드에 담는 타로 창작팀</span>
-          </div>
-          <h1>꽃처럼 피어나는 상징,<br />물결처럼 흐르는 리딩</h1>
-          <p class="hero-title-sub">
-            화운방 花澐房은 타로 리더들이 모여<br />
-            카드 제작과 리딩을 함께 연구하는 보라빛 크리에이티브 스튜디오입니다.
-          </p>
-          <p class="hero-body">
-            상징과 감정, 이야기를 사랑하는 사람들.  
-            누군가의 하루에 잔잔히 머무는 카드를 만들기 위해 모였습니다.
-          </p>
-
-          <div class="hero-actions">
-            <a
-              class="btn btn-primary"
-              href="https://tumblbug.com/navi_renormand"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              텀블벅 펀딩 보러가기 ↗
-            </a>
-            <a href="#team" class="btn btn-ghost">
-              화운방 팀원 소개 보기
-            </a>
-          </div>
-          <p class="hero-note">
-            * 현재 레노먼드 카드 프로젝트가 텀블벅에서 진행 중입니다.
-          </p>
+    <!-- 히어로 -->
+    <section class="hero">
+      <div class="hero-inner">
+        <div class="hero-left-title">
+          ✦ 영감의 물결을 카드에 담는 타로 창작팀
         </div>
-      </section>
 
-      <!-- 공지 / 텀블벅 -->
-      <section class="section" id="notice">
-        <h2 class="section-title">📢 공지사항 · 텀블벅 펀딩 안내</h2>
-        <p class="section-sub">
-          화운방의 첫 공식 레노먼드 카드 프로젝트가 텀블벅에서 진행 중입니다.
+        <h1>꽃처럼 피어나는 상징,<br>물결처럼 흐르는 리딩</h1>
+
+        <p class="hero-title-sub">
+          화운방 花澐房은 타로 리더들이 모여<br>
+          카드 제작과 리딩을 함께 연구하는 보라빛 크리에이티브 스튜디오입니다.
         </p>
 
-        <article class="notice-card">
-          <div>
-            <div class="notice-chip">
-              <span>진행 중</span>
-              <span>· 텀블벅 펀딩</span>
+        <p class="hero-body">
+          상징과 감정, 이야기를 사랑하는 사람들.  
+          누군가의 하루에 잔잔히 머무는 카드를 만들기 위해 모였습니다.
+        </p>
+
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="https://tumblbug.com/navi_renormand" target="_blank">
+            텀블벅 프로젝트 보기 ↗
+          </a>
+          <a class="btn btn-ghost" href="#team">
+            팀원 소개 보기
+          </a>
+        </div>
+
+        <div class="hero-note">
+          * 현재 NAVI LENORMAND 프로젝트가 텀블벅에서 진행 중입니다.
+        </div>
+      </div>
+    </section>
+
+    <!-- 팀 소개 -->
+    <section class="section" id="about">
+      <h2 class="section-title">✨ 화운방 花澐房 소개</h2>
+      <p class="section-sub">
+        ‘꽃처럼 피어나는 상징과 물결처럼 깊은 감정’을 담는 타로·카드 제작팀입니다.
+      </p>
+
+      <div class="cards-grid">
+        <article class="info-card">
+          <div class="badge">팀 철학</div>
+          <h3>꽃처럼 피어나는 상징</h3>
+          <ul class="info-list">
+            <li>감성·상징·이야기를 카드에 섬세하게 담아냄</li>
+            <li>한 장의 카드로도 이야기가 완성되는 구성</li>
+            <li>예쁜 카드가 아닌, 읽히는 카드 제작</li>
+          </ul>
+        </article>
+
+        <article class="info-card">
+          <div class="badge">리딩 스타일</div>
+          <h3>물결처럼 흐르는 리딩</h3>
+          <ul class="info-list">
+            <li>감정 공감 + 현실 기반 조언</li>
+            <li>상담자의 상황에 맞춘 세밀한 해석</li>
+            <li>스프레드 구조 연구 및 개발</li>
+          </ul>
+        </article>
+
+        <article class="info-card">
+          <div class="badge">작업 영역</div>
+          <h3>카드 제작 & 콘텐츠</h3>
+          <ul class="info-list">
+            <li>타로·레노먼드·오라클 기획</li>
+            <li>카드 해설서 & 리딩 자료 제작</li>
+            <li>웹 기반 리딩/가이드 개발</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <!-- 팀원 소개 -->
+    <section class="section" id="team">
+      <h2 class="section-title">👥 화운방 팀원 소개</h2>
+      <p class="section-sub">보라빛 흐름을 함께 만드는 세 명의 카드 크리에이터입니다.</p>
+
+      <div class="team-grid">
+        <!-- 나비 -->
+        <article class="profile-card">
+          <div class="profile-header">
+            <div class="profile-avatar">🦋</div>
+            <div>
+              <div class="profile-name">나비 NAVI</div>
+              <div class="profile-role">타로 리더 · 카드 크리에이터</div>
             </div>
-            <h3 class="notice-title">
-              [NAVI LENORMAND] 화운방 × 나비
-            </h3>
-            <p class="notice-body">
-              감성 레노먼드 36장 덱을 정성스럽게 제작했습니다.  
-              해설과 리딩 예시까지 모두 담은 카드 프로젝트입니다.
-            </p>
-            <p class="notice-meta">
-              · 펀딩 링크:
-              <a
-                href="https://tumblbug.com/navi_renormand"
-                target="_blank"
-                rel="noopener noreferrer"
-              >https://tumblbug.com/navi_renormand</a>
-            </p>
           </div>
-          <div>
-            <p class="notice-label">텀블벅에서 프로젝트 확인하기</p>
-            <div class="notice-btn-group">
-              <a
-                class="btn btn-primary"
-                href="https://tumblbug.com/navi_renormand"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                펀딩 보기
-              </a>
-            </div>
+          <div class="profile-body">
+            감정 기반 리딩과 섬세한 문구 작업을 담당하며,<br>
+            레노먼드 프로젝트 총괄 기획을 맡고 있습니다.
+          </div>
+          <div class="profile-links">
+            <a class="profile-button" href="https://moonhong1164.github.io/NAVIcommision/" target="_blank">· 나비 커미션 페이지</a>
           </div>
         </article>
-      </section>
 
-      <!-- 팀 소개 / 철학 -->
-      <section class="section" id="about">
-        <h2 class="section-title">✨ 화운방 花澐房 소개</h2>
-        <p class="section-sub">
-          ‘꽃처럼 피어나는 상징과 물결처럼 깊은 감정’을 담는 타로·카드 제작팀입니다.
-        </p>
-
-        <div class="cards-grid">
-          <article class="info-card">
-            <div class="badge">팀 철학</div>
-            <h3>꽃처럼 피어나는 상징</h3>
-            <ul class="info-list">
-              <li>감성·상징·이야기를 카드에 섬세하게 담아냄</li>
-              <li>한 장의 카드로도 이야기가 완성되는 구성을 지향</li>
-              <li>예쁜 카드가 아닌, 읽히는 카드를 제작</li>
-            </ul>
-          </article>
-
-          <article class="info-card">
-            <div class="badge">리딩 스타일</div>
-            <h3>물결처럼 흐르는 리딩</h3>
-            <ul class="info-list">
-              <li>감정 공감 + 현실 기반 조언</li>
-              <li>상담자의 상황에 맞춘 세밀한 리딩</li>
-              <li>스프레드 구조 연구 및 개발</li>
-            </ul>
-          </article>
-
-          <article class="info-card">
-            <div class="badge">작업 영역</div>
-            <h3>카드 제작 & 콘텐츠</h3>
-            <ul class="info-list">
-              <li>타로, 레노먼드, 오라클 카드 기획</li>
-              <li>카드 해설서, 리딩 자료 제작</li>
-              <li>웹 기반 리딩/가이드 제작</li>
-            </ul>
-          </article>
-        </div>
-      </section>
-
-      <!-- 팀원 소개 -->
-      <section class="section" id="team">
-        <h2 class="section-title">👥 화운방 팀원 소개</h2>
-        <p class="section-sub">
-          보라빛 흐름을 함께 만드는 세 명의 카드 크리에이터입니다.
-        </p>
-
-        <div class="team-grid">
-          <!-- 나비 -->
-          <article class="profile-card">
-            <div class="profile-header">
-              <div class="profile-avatar">🦋</div>
-              <div class="profile-text">
-                <span class="profile-name">나비 NAVI</span>
-                <span class="profile-role">타로 리더 · 카드 크리에이터</span>
-              </div>
+        <!-- 청우루나 -->
+        <article class="profile-card">
+          <div class="profile-header">
+            <div class="profile-avatar">🌌</div>
+            <div>
+              <div class="profile-name">청우루나 LUNA</div>
+              <div class="profile-role">타로 리더 · 스토리 디자이너</div>
             </div>
-            <div class="profile-body">
-              섬세한 감정 기반 리딩을 중심으로,  
-              레노먼드 프로젝트의 메인 기획과 카드 텍스트를 담당합니다.
-            </div>
-            <div class="profile-links">
-              <a
-                class="profile-button"
-                href="https://moonhong1164.github.io/NAVIcommision/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                · 나비 커미션 페이지
-              </a>
-            </div>
-          </article>
+          </div>
+          <div class="profile-body">
+            내면·심리 중심 리딩 스타일로 깊은 스토리 구조를 설계하며,<br>
+            카드 해설 흐름을 정리합니다.
+          </div>
+          <div class="profile-links">
+            <a class="profile-button" href="https://moonhong1164.github.io/LUNAcommision/" target="_blank">· 청우루나 홈페이지</a>
+          </div>
+        </article>
 
-          <!-- 청우루나 -->
-          <article class="profile-card">
-            <div class="profile-header">
-              <div class="profile-avatar">🌌</div>
-              <div class="profile-text">
-                <span class="profile-name">청우루나 LUNA</span>
-                <span class="profile-role">타로 리더 · 스토리 디자이너</span>
-              </div>
+        <!-- 후이 -->
+        <article class="profile-card">
+          <div class="profile-header">
+            <div class="profile-avatar">✨</div>
+            <div>
+              <div class="profile-name">후이 HUI</div>
+              <div class="profile-role">타로 리더 · 해설 & 구조 연구</div>
             </div>
-            <div class="profile-body">
-              내면·심리 기반의 깊은 리딩 스타일로,  
-              카드 서사 구조와 리딩 가이드를 설계하고 정리합니다.
-            </div>
-            <div class="profile-links">
-              <a
-                class="profile-button"
-                href="https://moonhong1164.github.io/LUNAcommision/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                · 청우루나 홈페이지
-              </a>
-            </div>
-          </article>
+          </div>
+          <div class="profile-body">
+            현실 상황 흐름 중심의 실전 리딩을 맡고 있으며,<br>
+            스프레드 구조 연구 및 테스트를 진행합니다.
+          </div>
+          <div class="profile-links">
+            <a class="profile-button" href="https://moonhong1164.github.io/HUIcommision/" target="_blank">· 후이 타로 홈페이지</a>
+          </div>
+        </article>
+      </div>
+    </section>
 
-          <!-- 후이 -->
-          <article class="profile-card">
-            <div class="profile-header">
-              <div class="profile-avatar">✨</div>
-              <div class="profile-text">
-                <span class="profile-name">후이 HUI</span>
-                <span class="profile-role">타로 리더 · 해설 & 구조 연구</span>
-              </div>
-            </div>
-            <div class="profile-body">
-              현실적인 상황 흐름을 중심으로 해석하며,  
-              스프레드 구조 연구와 실전 리딩 예시를 담당합니다.
-            </div>
-            <div class="profile-links">
-              <a
-                class="profile-button"
-                href="https://moonhong1164.github.io/HUIcommision/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                · 후이 타로 홈페이지
-              </a>
-            </div>
-          </article>
-        </div>
-      </section>
+    <!-- 프로젝트 -->
+    <section class="section" id="projects">
+      <h2 class="section-title">🎴 진행 중인 작업 & 앞으로의 카드들</h2>
 
-      <!-- 작업 / 프로젝트 -->
-      <section class="section" id="projects">
-        <h2 class="section-title">🎴 진행 중인 작업 & 앞으로의 카드들</h2>
-        <p class="section-sub">
-          현재 및 예정된 화운방 카드 프로젝트 목록입니다.
-        </p>
+      <div class="cards-grid">
+        <article class="info-card">
+          <div class="badge">진행 중</div>
+          <h3>NAVI LENORMAND</h3>
+          <ul class="info-list">
+            <li>36장 감성 레노먼드 일러스트 제작</li>
+            <li>해설서 & 실제 리딩 예시 포함</li>
+            <li>텀블벅 펀딩 진행 중</li>
+          </ul>
+        </article>
 
-        <div class="cards-grid">
-          <article class="info-card">
-            <div class="badge">진행 중</div>
-            <h3>NAVI LENORMAND</h3>
-            <ul class="info-list">
-              <li>레노먼드 36장 감성 일러스트 제작</li>
-              <li>상세 해설 & 실제 리딩 예시 수록</li>
-              <li>텀블벅 펀딩 진행 중</li>
-            </ul>
-          </article>
-
-          <article class="info-card">
-            <div class="badge">예정</div>
-            <h3>오라클 예정 프로젝트</h3>
-            <ul class="info-list">
-              <li>짧은 조언형 메시지 기반 오라클</li>
-              <li>일상·감정·관계에 쉽게 쓰는 카드</li>
-              <li>타로 리더 테스트 후 정식 제작 예정</li>
-            </ul>
-          </article>
-        </div>
-      </section>
-    </main>
+        <article class="info-card">
+          <div class="badge">예정</div>
+          <h3>오라클 예정 프로젝트</h3>
+          <ul class="info-list">
+            <li>짧고 간단한 조언형 오라클 제작 예정</li>
+            <li>일상·관계 리딩에 최적화</li>
+            <li>타로 리더 테스트 후 정식 진행</li>
+          </ul>
+        </article>
+      </div>
+    </section>
 
     <!-- 푸터 -->
     <footer>
       <div class="footer-inner">
-        <div>
-          © 화운방 花澐房 · Tarot & Card Creative Studio
-        </div>
-        <div>
-          <a
-            href="https://tumblbug.com/navi_renormand"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="mini-link"
-          >
-            텀블벅 프로젝트 바로가기
-          </a>
-        </div>
+        <div>© 화운방 花澐房 · Tarot & Card Creative Studio</div>
+        <div><a href="https://tumblbug.com/navi_renormand" target="_blank" class="mini-link">텀블벅 프로젝트 바로가기</a></div>
       </div>
     </footer>
+
   </div>
 </body>
 </html>
