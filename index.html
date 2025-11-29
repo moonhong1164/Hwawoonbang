@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>화운방 花澐房 | 타로 & 카드 크리에이티브 스튜디오</title>
+  <style>
+    :root {
+      --bg-top: #f5f3ff;
+      --bg-middle: #faf5ff;
+      --bg-bottom: #fdf7ff;
+
+      --card: #ffffff;
+      --card-soft: #f6f0ff;
+
+      --accent: #a855f7;      /* 메인 포인트 보라 */
+      --accent-soft: rgba(168, 85, 247, 0.12);
+      --accent-deep: #7c3aed; /* 진한 보라 */
+      --line: #e5e0ff;
+
+      --text-main: #1f1635;
+      --text-muted: #6b6288;
+
+      --shadow-soft: 0 10px 30px rgba(31, 24, 61, 0.12);
+      --radius-xl: 24px;
+      --radius-lg: 18px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: ui-sans-serif, system-ui, -apple-system,
+        "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
+      color: var(--text-main);
+      background: linear-gradient(to bottom, var(--bg-top), var(--bg-middle), var(--bg-bottom));
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(16px);
+      background: linear-gradient(
+        to right,
+        rgba(245, 243, 255, 0.9),
+        rgba(250, 245, 255, 0.9)
+      );
+      border-bottom: 1px solid rgba(255, 255, 255, 0.6);
+    }
+
+    .nav {
+      max-width: 1040px;
+      margin: 0 auto;
+      padding: 14px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo-mark {
+      width: 36px;
+      height: 36px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 20%, #fdfcff, #f2e7ff);
+      border: 1px solid #e4d7ff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      color: var(--accent-deep);
+      box-shadow: 0 6px 18px rgba(124, 58, 237, 0.25);
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.2;
+    }
+
+    .brand-main {
+      font-size: 17px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+    }
+
+    .brand-sub {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      font-size: 14px;
+    }
+
+    .nav-link {
+      padding: 6px 10px;
+      border-radius: 999px;
+      color: var(--text-muted);
+      transition: background 0.2s ease, color 0.2s ease;
+      cursor: pointer;
+    }
+
+    .nav-link:hover {
+      background: rgba(255, 255, 255, 0.8);
+      color: var(--accent-deep);
+    }
+
+    .nav-link.primary {
+      background: var(--accent);
+      color: #fff;
+      box-shadow: 0 10px 25px rgba(124, 58, 237, 0.3);
+      padding: 7px 14px;
+    }
+
+    main {
+      flex: 1;
+    }
+
+    .hero {
+      max-width: 1040px;
+      margin: 0 auto;
+      padding: 30px 20px 40px;
+      display: grid;
+      grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+      gap: 28px;
+      align-items: center;
+    }
+
+    .hero-left-title {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.9);
+      border: 1px solid #e7ddff;
+      font-size: 11px;
+      color: var(--accent-deep);
+      margin-bottom: 12px;
+    }
+
+    .pill-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 20%, #fef3ff, #a855f7);
+      box-shadow: 0 0 0 3px rgba(168, 85, 247, 0.18);
+    }
+
+    .hero h1 {
+      margin: 0 0 10px;
+      font-size: clamp(30px, 4vw, 36px);
+      letter-spacing: 0.03em;
+    }
+
+    .hero-title-sub {
+      font-size: 15px;
+      margin-bottom: 16px;
+      color: var(--text-muted);
+    }
+
+    .hero-body {
+      font-size: 14px;
+      color: var(--text-muted);
+      margin-bottom: 20px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+
+    .btn {
+      border-radius: 999px;
+      border: none;
+      padding: 9px 16px;
+      font-size: 13px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-weight: 500;
+      transition: transform 0.12s ease, box-shadow 0.12s ease, background 0.12s ease;
+      text-decoration: none;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent), var(--accent-deep));
+      color: #fff;
+      box-shadow: 0 12px 28px rgba(124, 58, 237, 0.35);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 14px 32px rgba(124, 58, 237, 0.4);
+    }
+
+    .btn-ghost {
+      background: rgba(255, 255, 255, 0.9);
+      color: var(--accent-deep);
+      border: 1px solid #e4ddff;
+    }
+
+    .btn-ghost:hover {
+      background: #ffffff;
+      transform: translateY(-1px);
+      box-shadow: 0 8px 18px rgba(148, 120, 255, 0.2);
+    }
+
+    .hero-note {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .hero-right {
+      position: relative;
+    }
+
+    .hero-card {
+      border-radius: var(--radius-xl);
+      background: radial-gradient(circle at 10% 0%, #fdfbff, #f3e8ff);
+      padding: 18px 18px 18px;
+      box-shadow: var(--shadow-soft);
+      border: 1px solid rgba(226, 214, 255, 0.8);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-card-title {
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 4px;
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+    }
+
+    .hero-card-title small {
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+
+    .hero-card-body {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-bottom: 10px;
+    }
+
+    .fake-cards-row {
+      margin-top: 6px;
+      display: flex;
+      gap: 8px;
+      flex-wrap: nowrap;
+    }
+
+    .fake-card {
+      flex: 1;
+      min-width: 0;
+      aspect-ratio: 2.2/3.6;
+      border-radius: 14px;
+      background: linear-gradient(160deg, #ede9fe, #fef3ff);
+      border: 1px solid rgba(209, 196, 255, 0.9);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      color: var(--accent-deep);
+      text-align: center;
+      padding: 6px;
+    }
+
+    .fake-card:nth-child(2) {
+      margin-top: 8px;
+      transform: translateY(2px);
+      opacity: 0.95;
+    }
+
+    .fake-card:nth-child(3) {
+      margin-top: 4px;
+      opacity: 0.92;
+    }
+
+    .fake-card-tag {
+      position: absolute;
+      top: 6px;
+      left: 6px;
+      padding: 3px 6px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.82);
+      font-size: 9px;
+      color: var(--text-muted);
+    }
+
+    .hero-card-bg-orb {
+      position: absolute;
+      right: -30px;
+      bottom: -40px;
+      width: 160px;
+      height: 160px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 10% 10%, #fef9ff, #a855f7);
+      opacity: 0.26;
+      pointer-events: none;
+    }
+
+    /* 공지 섹션 */
+    .section {
+      max-width: 1040px;
+      margin: 0 auto;
+      padding: 10px 20px 26px;
+    }
+
+    .section-title {
+      font-size: 18px;
+      margin-bottom: 8px;
+    }
+
+    .section-sub {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+    }
+
+    .notice-card {
+      border-radius: var(--radius-lg);
+      background: #f8f5ff;
+      border: 1px solid var(--line);
+      padding: 16px 16px 14px;
+      display: grid;
+      grid-template-columns: minmax(0, 2.2fr) minmax(0, 1.6fr);
+      gap: 18px;
+      align-items: center;
+      box-shadow: 0 10px 24px rgba(111, 77, 219, 0.12);
+    }
+
+    .notice-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent-deep);
+      font-size: 11px;
+      margin-bottom: 6px;
+    }
+
+    .notice-title {
+      font-size: 15px;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .notice-body {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-bottom: 10px;
+    }
+
+    .notice-meta {
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+
+    .notice-btn-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      justify-content: flex-end;
+    }
+
+    .notice-label {
+      font-size: 11px;
+      color: var(--text-muted);
+      margin-bottom: 4px;
+      text-align: right;
+    }
+
+    /* 소개 카드들 */
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 10px;
+    }
+
+    .info-card {
+      background: rgba(255, 255, 255, 0.96);
+      border-radius: 18px;
+      padding: 14px;
+      border: 1px solid #ece5ff;
+      box-shadow: 0 10px 20px rgba(126, 89, 255, 0.06);
+      font-size: 13px;
+    }
+
+    .info-card h3 {
+      margin: 0 0 6px;
+      font-size: 14px;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 2px 8px;
+      border-radius: 999px;
+      font-size: 11px;
+      background: #f3e8ff;
+      color: var(--accent-deep);
+      margin-bottom: 6px;
+    }
+
+    .info-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .info-list li + li {
+      margin-top: 2px;
+    }
+
+    /* 푸터 */
+    footer {
+      border-top: 1px solid rgba(226, 217, 255, 0.8);
+      margin-top: 24px;
+      background: rgba(249, 245, 255, 0.9);
+    }
+
+    .footer-inner {
+      max-width: 1040px;
+      margin: 0 auto;
+      padding: 14px 20px 18px;
+      font-size: 11px;
+      color: var(--text-muted);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .footer-left {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .footer-right {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .mini-link {
+      font-size: 11px;
+      color: var(--text-muted);
+      text-decoration: underline;
+      text-decoration-style: dotted;
+      text-underline-offset: 3px;
+      cursor: pointer;
+    }
+
+    /* 반응형 */
+    @media (max-width: 768px) {
+      .hero {
+        grid-template-columns: minmax(0, 1fr);
+        padding-top: 22px;
+        gap: 20px;
+      }
+
+      .hero-right {
+        order: -1;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .notice-card {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .cards-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero {
+        padding-inline: 16px;
+      }
+      .section {
+        padding-inline: 16px;
+      }
+
+      .hero-card {
+        padding: 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <!-- 헤더 -->
+    <header>
+      <div class="nav">
+        <div class="nav-left">
+          <div class="logo-mark">
+            花
+          </div>
+          <div class="brand-text">
+            <span class="brand-main">화운방 花澐房</span>
+            <span class="brand-sub">Tarot & Card Creative Studio</span>
+          </div>
+        </div>
+        <nav class="nav-links">
+          <a href="#about" class="nav-link">소개</a>
+          <a href="#projects" class="nav-link">작업 & 카드</a>
+          <a href="#notice" class="nav-link primary">텀블벅 펀딩 안내</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <!-- 히어로 섹션 -->
+      <section class="hero" id="top">
+        <div>
+          <div class="hero-left-title">
+            <span class="pill-dot"></span>
+            <span>영감의 물결을 카드에 담는 타로 창작팀</span>
+          </div>
+          <h1>꽃처럼 피어나는 상징,<br />물결처럼 흐르는 리딩</h1>
+          <p class="hero-title-sub">
+            화운방 花澐房은 타로 리더들이 모여<br />
+            카드 제작과 리딩을 함께 연구하는 보라빛 크리에이티브 스튜디오입니다.
+          </p>
+          <p class="hero-body">
+            우리는 상징과 직관, 이야기를 사랑합니다.  
+            각자의 경험과 시선을 모아,  
+            누군가의 하루와 마음에 잔잔히 머무를 수 있는 카드와 리딩을 만들어갑니다.
+          </p>
+
+          <div class="hero-actions">
+            <a
+              class="btn btn-primary"
+              href="https://tumblbug.com/navi_renormand"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              텀블벅 펀딩 보러가기
+              <span>↗</span>
+            </a>
+            <a href="#about" class="btn btn-ghost">
+              화운방 팀 소개 보기
+            </a>
+          </div>
+          <p class="hero-note">
+            * 현재 레노먼드 카드 프로젝트를 중심으로 여러 카드 작업을 함께 진행하고 있습니다.
+          </p>
+        </div>
+
+        <!-- 오른쪽: 예쁜 카드 프리뷰 블록 -->
+        <div class="hero-right">
+          <article class="hero-card">
+            <div class="hero-card-title">
+              <span>오늘의 한 줄 리딩</span>
+              <small>for you, from 花澐房</small>
+            </div>
+            <p class="hero-card-body">
+              당신의 마음에 잔잔한 파동을 일으키는 한 장의 카드,  
+              그 안에 숨은 상징과 이야기를 함께 읽어드립니다.
+            </p>
+            <div class="fake-cards-row">
+              <div class="fake-card">
+                <span class="fake-card-tag">lenormand</span>
+                <span>연보라빛<br />하루 리딩</span>
+              </div>
+              <div class="fake-card">
+                <span class="fake-card-tag">tarot</span>
+                <span>영감이<br />피어나는 순간</span>
+              </div>
+              <div class="fake-card">
+                <span class="fake-card-tag">oracle</span>
+                <span>조용히<br />건네는 메시지</span>
+              </div>
+            </div>
+            <div class="hero-card-bg-orb"></div>
+          </article>
+        </div>
+      </section>
+
+      <!-- 공지 / 텀블벅 -->
+      <section class="section" id="notice">
+        <h2 class="section-title">📢 공지사항 · 텀블벅 펀딩 안내</h2>
+        <p class="section-sub">
+          화운방의 첫 공식 프로젝트가 텀블벅에서 진행 중입니다.  
+          아래 링크를 통해 상세 페이지에서 카드 컨셉과 구성, 리워드 내용을 확인하실 수 있어요.
+        </p>
+
+        <article class="notice-card">
+          <div>
+            <div class="notice-chip">
+              <span>진행 중</span>
+              <span>· 텀블벅 펀딩</span>
+            </div>
+            <h3 class="notice-title">
+              [NAVI LENORMAND] 화운방 × 나비 레노먼드 카드 프로젝트
+            </h3>
+            <p class="notice-body">
+              현재 텀블벅에서 <strong>레노먼드 카드</strong> 프로젝트를 오픈했습니다.  
+              카드 아트워크, 해설, 활용법까지 한 deck 안에 정성껏 담고 있습니다.  
+              펀딩을 통해 완성본 카드를 가장 먼저 만나보실 수 있어요.
+            </p>
+            <p class="notice-meta">
+              · 펀딩 페이지: <a
+                href="https://tumblbug.com/navi_renormand"
+                target="_blank"
+                rel="noopener noreferrer"
+              >https://tumblbug.com/navi_renormand</a><br />
+              · 프로젝트 타입: 레노먼드 카드 & 해설<br />
+              · 참여: 화운방 타로 리더 & 크리에이터 팀
+            </p>
+          </div>
+          <div>
+            <p class="notice-label">텀블벅에서 프로젝트 확인하기</p>
+            <div class="notice-btn-group">
+              <a
+                class="btn btn-primary"
+                href="https://tumblbug.com/navi_renormand"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                텀블벅 바로가기
+              </a>
+              <a href="#projects" class="btn btn-ghost">
+                다른 작업들도 보기
+              </a>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <!-- 팀 소개 / 작업 소개 -->
+      <section class="section" id="about">
+        <h2 class="section-title">✨ 화운방 花澐房 소개</h2>
+        <p class="section-sub">
+          화운방(花澐房)은 ‘꽃처럼 피어나는 상징과 깊은 물결 같은 감정을 카드에 담는 공간’이라는 뜻으로,  
+          타로·레노먼드·오라클 등 카드 시스템을 연구하고 제작하는 크리에이티브 팀입니다.
+        </p>
+
+        <div class="cards-grid">
+          <article class="info-card">
+            <div class="badge">팀 철학</div>
+            <h3>꽃처럼 피어나는 상징</h3>
+            <ul class="info-list">
+              <li>상징, 스토리, 감정을 섬세하게 담아내는 카드 디자인</li>
+              <li>한 장의 카드로도 이야기가 펼쳐지는 구조를 지향</li>
+              <li>“예쁘기만 한 카드”가 아닌, 실제 리딩에 살아 움직이는 덱</li>
+            </ul>
+          </article>
+
+          <article class="info-card">
+            <div class="badge">리딩 스타일</div>
+            <h3>물결처럼 흐르는 리딩</h3>
+            <ul class="info-list">
+              <li>조언·위로·현실적인 방향 제시를 균형 있게 담은 해석</li>
+              <li>상담자의 속도와 감정에 맞춰 함께 읽어가는 리딩</li>
+              <li>질문과 상황에 맞는 스프레드를 연구하고 개발</li>
+            </ul>
+          </article>
+
+          <article class="info-card">
+            <div class="badge">작업 영역</div>
+            <h3>카드 제작 & 콘텐츠</h3>
+            <ul class="info-list">
+              <li>타로, 레노먼드, 오라클 카드 기획 및 일러스트 레퍼런스 설계</li>
+              <li>카드 해설서, 예시 리딩, 활용 가이드 제작</li>
+              <li>온라인 리딩, 카드 교육용 자료, 웹 페이지/굿즈 연계</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <!-- 작업 / 프로젝트 -->
+      <section class="section" id="projects">
+        <h2 class="section-title">🎴 진행 중인 작업 & 앞으로의 카드들</h2>
+        <p class="section-sub">
+          화운방은 레노먼드 프로젝트를 시작으로, 다양한 카드 시스템과 리딩 방식을 실험하고 있습니다.  
+          아래는 현재 및 예정된 작업들의 간단한 소개입니다.
+        </p>
+
+        <div class="cards-grid">
+          <article class="info-card">
+            <div class="badge">진행 중</div>
+            <h3>NAVI LENORMAND</h3>
+            <ul class="info-list">
+              <li>레노먼드 36장 기반의 감성 일러스트 & 해설 작업</li>
+              <li>일상, 관계, 진로, 감정 흐름에 특화된 리딩 예시 수록</li>
+              <li>텀블벅에서 선공개 · 한정 리워드 진행 중</li>
+            </ul>
+          </article>
+
+          <article class="info-card">
+            <div class="badge">기획 중</div>
+            <h3>보라빛 타로 프로젝트</h3>
+            <ul class="info-list">
+              <li>보라색 세계관을 중심으로 한 메이저 & 마이너 타로 기획</li>
+              <li>감정선·관계·자기 이해에 초점을 둔 스프레드 구성</li>
+              <li>온라인 리딩 페이지 & 해설 콘텐츠와 연동 예정</li>
+            </ul>
+          </article>
+
+          <article class="info-card">
+            <div class="badge">연구 중</div>
+            <h3>오라클 & 스프레드 실험</h3>
+            <ul class="info-list">
+              <li>짧은 조언형 오라클 카드 셋 구성</li>
+              <li>3카드·9카드·그랑타블로 등 다양한 스프레드 연구</li>
+              <li>타로 리더들이 함께 테스트하고 피드백 반영</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <!-- 푸터 -->
+    <footer>
+      <div class="footer-inner">
+        <div class="footer-left">
+          <span>© 화운방 花澐房 · Tarot & Card Creative Studio</span>
+          <span>본 페이지의 모든 카드 기획 및 텍스트는 팀 화운방의 창작물입니다.</span>
+        </div>
+        <div class="footer-right">
+          <a
+            href="https://tumblbug.com/navi_renormand"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="mini-link"
+          >
+            텀블벅 프로젝트 바로가기
+          </a>
+          <span>|</span>
+          <span class="mini-link">연락처 / 리딩 안내 예정</span>
+        </div>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>
