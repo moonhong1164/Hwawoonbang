@@ -336,7 +336,7 @@
       pointer-events: none;
     }
 
-    /* 공지 섹션 */
+    /* 공통 섹션 */
     .section {
       max-width: 1040px;
       margin: 0 auto;
@@ -354,6 +354,7 @@
       margin-bottom: 16px;
     }
 
+    /* 공지 섹션 */
     .notice-card {
       border-radius: var(--radius-lg);
       background: #f8f5ff;
@@ -409,7 +410,7 @@
       text-align: right;
     }
 
-    /* 소개 카드들 */
+    /* 소개 카드들 (철학/리딩/작업 영역) */
     .cards-grid {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -453,6 +454,77 @@
 
     .info-list li + li {
       margin-top: 2px;
+    }
+
+    /* 팀원 소개용 프로필 카드 스타일 */
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 18px;
+      margin-top: 14px;
+    }
+
+    .profile-card {
+      background: linear-gradient(145deg, #fdfbff, #f3e8ff);
+      border-radius: 22px;
+      padding: 16px 16px 14px;
+      border: 1px solid #e4ddff;
+      box-shadow: 0 16px 32px rgba(124, 58, 237, 0.18);
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .profile-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .profile-avatar {
+      width: 52px;
+      height: 52px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 20% 10%, #ffffff, #e9ddff);
+      border: 1px solid #dccfff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 26px;
+      box-shadow: 0 10px 22px rgba(124, 58, 237, 0.28);
+    }
+
+    .profile-text {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .profile-name {
+      font-size: 15px;
+      font-weight: 700;
+    }
+
+    .profile-role {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .profile-body {
+      font-size: 12px;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    .profile-link {
+      margin-top: 4px;
+      font-size: 12px;
+    }
+
+    .profile-link a {
+      color: var(--accent-deep);
+      text-decoration: underline;
+      text-underline-offset: 3px;
     }
 
     /* 푸터 */
@@ -552,6 +624,7 @@
         </div>
         <nav class="nav-links">
           <a href="#about" class="nav-link">소개</a>
+          <a href="#team" class="nav-link">팀원</a>
           <a href="#projects" class="nav-link">작업 & 카드</a>
           <a href="#notice" class="nav-link primary">텀블벅 펀딩 안내</a>
         </nav>
@@ -677,7 +750,7 @@
         </article>
       </section>
 
-      <!-- 팀 소개 / 작업 소개 -->
+      <!-- 팀 소개 / 작업 철학 -->
       <section class="section" id="about">
         <h2 class="section-title">✨ 화운방 花澐房 소개</h2>
         <p class="section-sub">
@@ -714,6 +787,89 @@
               <li>카드 해설서, 예시 리딩, 활용 가이드 제작</li>
               <li>온라인 리딩, 카드 교육용 자료, 웹 페이지/굿즈 연계</li>
             </ul>
+          </article>
+        </div>
+      </section>
+
+      <!-- 🔥 팀원 소개 섹션 (3번 팀 소개 밑에) -->
+      <section class="section" id="team">
+        <h2 class="section-title">🪷 화운방 팀원 소개</h2>
+        <p class="section-sub">
+          화운방은 각자의 결을 가진 세 명의 타로 리더가 모여 만들어졌습니다.  
+          서로 다른 시선과 리딩 스타일이 하나의 보라빛 흐름이 되어, 카드와 리딩에 담깁니다.
+        </p>
+
+        <div class="team-grid">
+          <!-- 나비 -->
+          <article class="profile-card">
+            <div class="profile-header">
+              <div class="profile-avatar">🦋</div>
+              <div class="profile-text">
+                <span class="profile-name">나비 NAVI</span>
+                <span class="profile-role">타로 리더 · 카드 크리에이터</span>
+              </div>
+            </div>
+            <div class="profile-body">
+              관계와 감정선에 집중하는 섬세한 리딩을 중심으로,  
+              레노먼드 프로젝트의 메인 기획과 카드 텍스트, 연출 방향을 담당합니다.
+            </div>
+            <p class="profile-link">
+              <a
+                href="https://moonhong1164.github.io/NAVIcommision/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                · 나비 리딩 & 커미션 페이지 바로가기
+              </a>
+            </p>
+          </article>
+
+          <!-- 청우루나 -->
+          <article class="profile-card">
+            <div class="profile-header">
+              <div class="profile-avatar">🌙</div>
+              <div class="profile-text">
+                <span class="profile-name">청우루나 LUNA</span>
+                <span class="profile-role">타로 리더 · 스토리 디자이너</span>
+              </div>
+            </div>
+            <div class="profile-body">
+              심리와 내면 이야기를 중심으로 카드를 읽으며,  
+              카드의 서사 구조와 리딩 가이드, 활용 예시를 설계합니다.
+            </div>
+            <p class="profile-link">
+              <a
+                href="https://moonhong1164.github.io/LUNAcommision/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                · 청우루나 리딩 & 커미션 페이지 바로가기
+              </a>
+            </p>
+          </article>
+
+          <!-- 후이 -->
+          <article class="profile-card">
+            <div class="profile-header">
+              <div class="profile-avatar">🔮</div>
+              <div class="profile-text">
+                <span class="profile-name">후이 HUI</span>
+                <span class="profile-role">타로 리더 · 해설 & 구조 연구</span>
+              </div>
+            </div>
+            <div class="profile-body">
+              현실적인 상황과 흐름을 중심으로 해석하며,  
+              스프레드 구조 연구와 해설 문구, 실용적인 리딩 예시를 담당합니다.
+            </div>
+            <p class="profile-link">
+              <a
+                href="https://moonhong1164.github.io/HUIcommision/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                · 후이 리딩 & 커미션 페이지 바로가기
+              </a>
+            </p>
           </article>
         </div>
       </section>
