@@ -149,16 +149,24 @@
       flex: 1;
     }
 
-    /* 히어로 섹션 */
+    /* 히어로 섹션 – 한 줄 리딩 카드 제거 버전 (단일 컬럼) */
 
     .hero {
       max-width: 1040px;
       margin: 0 auto;
       padding: 30px 20px 40px;
-      display: grid;
-      grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
-      gap: 28px;
-      align-items: center;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .hero-inner {
+      max-width: 640px;
+      padding: 20px 20px 22px;
+      border-radius: 24px;
+      background: rgba(255, 255, 255, 0.85);
+      box-shadow: 0 18px 40px rgba(88, 55, 180, 0.28);
+      border: 1px solid rgba(228, 221, 255, 0.9);
     }
 
     .hero-left-title {
@@ -167,8 +175,8 @@
       gap: 8px;
       padding: 6px 12px;
       border-radius: 999px;
-      background: rgba(255, 255, 255, 0.8);
-      border: 1px solid #e7ddff;
+      background: rgba(245, 240, 255, 0.9);
+      border: 1px solid #e0d4ff;
       font-size: 11px;
       color: var(--accent-deep);
       margin-bottom: 12px;
@@ -247,80 +255,6 @@
     .hero-note {
       font-size: 12px;
       color: var(--text-muted);
-    }
-
-    .hero-right {
-      position: relative;
-    }
-
-    .hero-card {
-      border-radius: var(--radius-xl);
-      background: radial-gradient(circle at 10% 0%, #fdfbff, #f3e8ff);
-      padding: 18px;
-      box-shadow: var(--shadow-soft);
-      border: 1px solid rgba(226, 214, 255, 0.8);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero-card-title {
-      font-size: 14px;
-      font-weight: 600;
-      margin-bottom: 4px;
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-    }
-
-    .hero-card-body {
-      font-size: 12px;
-      color: var(--text-muted);
-      margin-bottom: 10px;
-    }
-
-    .fake-cards-row {
-      margin-top: 6px;
-      display: flex;
-      gap: 8px;
-    }
-
-    .fake-card {
-      flex: 1;
-      aspect-ratio: 2.2/3.6;
-      border-radius: 14px;
-      background: linear-gradient(160deg, #ede9fe, #fef3ff);
-      border: 1px solid rgba(209, 196, 255, 0.9);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 11px;
-      color: var(--accent-deep);
-      position: relative;
-      text-align: center;
-      padding: 6px;
-    }
-
-    .fake-card-tag {
-      position: absolute;
-      top: 6px;
-      left: 6px;
-      padding: 3px 6px;
-      border-radius: 999px;
-      background: rgba(255, 255, 255, 0.82);
-      font-size: 9px;
-      color: var(--text-muted);
-    }
-
-    .hero-card-bg-orb {
-      position: absolute;
-      right: -30px;
-      bottom: -40px;
-      width: 160px;
-      height: 160px;
-      border-radius: 999px;
-      background: radial-gradient(circle at 10% 10%, #fef9ff, #a855f7);
-      opacity: 0.26;
-      pointer-events: none;
     }
 
     /* 공통 섹션 */
@@ -569,13 +503,7 @@
 
     @media (max-width: 768px) {
       .hero {
-        grid-template-columns: minmax(0, 1fr);
         padding-top: 22px;
-        gap: 20px;
-      }
-
-      .hero-right {
-        order: -1;
       }
 
       .nav-links {
@@ -589,6 +517,10 @@
       .cards-grid {
         grid-template-columns: minmax(0, 1fr);
       }
+
+      .hero-inner {
+        padding-inline: 16px;
+      }
     }
 
     @media (max-width: 480px) {
@@ -597,10 +529,6 @@
       }
       .section {
         padding-inline: 16px;
-      }
-
-      .hero-card {
-        padding: 14px;
       }
     }
   </style>
@@ -629,9 +557,9 @@
     </header>
 
     <main>
-      <!-- 히어로 -->
+      <!-- 히어로 (한 줄 리딩 칸 제거된 버전) -->
       <section class="hero" id="top">
-        <div>
+        <div class="hero-inner">
           <div class="hero-left-title">
             <span class="pill-dot"></span>
             <span>영감의 물결을 카드에 담는 타로 창작팀</span>
@@ -662,34 +590,6 @@
           <p class="hero-note">
             * 현재 레노먼드 카드 프로젝트가 텀블벅에서 진행 중입니다.
           </p>
-        </div>
-
-        <div class="hero-right">
-          <article class="hero-card">
-            <div class="hero-card-title">
-              <span>오늘의 한 줄 리딩</span>
-              <small>for you, from 花澐房</small>
-            </div>
-            <p class="hero-card-body">
-              마음의 결에 닿는 보라빛 메시지 한 줄.  
-              오늘 당신에게 필요한 통찰을 전합니다.
-            </p>
-            <div class="fake-cards-row">
-              <div class="fake-card">
-                <span class="fake-card-tag">tarot</span>
-                영감의 순간
-              </div>
-              <div class="fake-card">
-                <span class="fake-card-tag">lenormand</span>
-                보라빛 리딩
-              </div>
-              <div class="fake-card">
-                <span class="fake-card-tag">oracle</span>
-                위로의 메시지
-              </div>
-            </div>
-            <div class="hero-card-bg-orb"></div>
-          </article>
         </div>
       </section>
 
